@@ -3,8 +3,10 @@ package com.example.myapplication
 import android.R.attr
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -13,6 +15,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import kotlin.math.abs
 
+/**
+ * Ref: https://medium.com/android-news/perfmatters-introduction-to-custom-viewgroups-to-improve-performance-part-2-f14fbcd47c
+ */
 class RPKSelectButton : FrameLayout {
 
   private var font = ResourcesCompat.getFont(context, R.font.gilroy_medium)
@@ -98,23 +103,9 @@ class RPKSelectButton : FrameLayout {
     }
   }
 
-//  override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-//    var totalWidth = 0
-//    var totalHeight = 0
-//    val count = childCount
-//    for (i in 0 until count) {
-//      val child = getChildAt(i)
-//      measureChild(child, widthMeasureSpec, heightMeasureSpec)
-//      totalWidth = child.measuredWidth
-//      if (child.measuredHeight > totalHeight) {
-//        //height of the container, will be the largest height.
-//        totalHeight = child.measuredHeight
-//      }
-//    }
-//    setMeasuredDimension(totalWidth, totalHeight)
-//  }
-
   override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+
+    //Log.d(TAG, "onMeasure: left $left top $top right $right bottom $bottom")
 
     val centerX = abs(right - left) / 2
     val centerY = abs(top - bottom) / 2
