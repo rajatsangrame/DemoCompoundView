@@ -95,12 +95,14 @@ class RPKSelectButton : FrameLayout {
     isSelected = false
   }
 
-  fun performSelect() {
+  override fun performClick(): Boolean {
+    Log.d(TAG, "performClick: ")
     if (isSelected) {
       unselect()
     } else {
       select()
     }
+    return super.performClick()
   }
 
   override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {

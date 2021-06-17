@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/appraisal_nav_graph"
+    app:startDestination="@id/nav_home">
+
+  <fragment
+      android:id="@+id/nav_home"
+      android:label="HomeFragment"
+      android:name="com.example.myapplication.HomeFragment">
+    <action
+        android:id="@+id/action_HomeFragment_to_SecondFragment"
+        app:destination="@+id/nav_second" />
+
+  </fragment>
+
+  <fragment
+      android:id="@+id/nav_second"
+      android:label="SecondFragment"
+      android:name="com.example.myapplication.SecondFragment" />
+
+</navigation>
